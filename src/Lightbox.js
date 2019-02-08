@@ -271,6 +271,16 @@ class Lightbox extends Component {
 					https://fb.me/react-unknown-prop is resolved
 					<Swipeable onSwipedLeft={this.gotoNext} onSwipedRight={this.gotoPrev} />
 				*/}
+                                { this.props.Component ? (
+					<this.props.Component 
+				          className={css(this.classes.image, imageLoaded && this.classes.imageLoaded)}
+					  onClick={onClickImage}
+					  sizes={sizes}
+					  alt={image.alt}
+					  src={image.src}
+					  srcSet={sourceSet}
+				          onClickImage={onClickImage}
+				  />) : (
 				<img
 					className={css(this.classes.image, imageLoaded && this.classes.imageLoaded)}
 					onClick={onClickImage}
@@ -282,7 +292,7 @@ class Lightbox extends Component {
 						cursor: onClickImage ? 'pointer' : 'auto',
 						maxHeight: `calc(100vh - ${heightOffset})`,
 					}}
-				/>
+				/> ) }
 			</figure>
 		);
 	}
